@@ -81,9 +81,4 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetAxisRaw("Jump") == 0 || _hangCounter <= 0) && _rb.velocity.y > 0)
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * .8f);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-    }
 }
