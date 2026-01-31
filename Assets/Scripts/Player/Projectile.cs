@@ -8,11 +8,13 @@ public class Projectile : MonoBehaviour
 
     public Vector2 directionNormalized;
 
+    public int damage = 25;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
         StartCoroutine(ReduceVelocity());
     }
 
