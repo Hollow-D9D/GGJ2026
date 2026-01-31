@@ -14,11 +14,15 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _rb;
     float _dir;
 
+    [Header("Jump parameters")]
     [SerializeField]
     LayerMask ground;
     [SerializeField]
     float groundCheckRadius;
     bool _jumped;
+    [SerializeField]
+    private float jumpSpeed;
+
 
     bool _isGrounded;
     [SerializeField] private Transform _groundCheck;
@@ -65,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _hangCounter -= Time.deltaTime;
+            _hangCounter -= Time.fixedDeltaTime;
         }
 
         _jumped = !_isGrounded;
@@ -75,10 +79,10 @@ public class PlayerMovement : MonoBehaviour
             if (_hangCounter > 0 && !_jumped)
             {
                 _jumped = true;
-                _rb.velocity = new Vector2(_rb.velocity.x, speed);
+                _rb.velocity = new Vector2(_rb.velocity.x, jumpSpeed);
             }
         }
         if ((Input.GetAxisRaw("Jump") == 0 || _hangCounter <= 0) && _rb.velocity.y > 0)
-            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * .8f);
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * .2f);
     }
 }

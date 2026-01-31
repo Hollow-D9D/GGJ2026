@@ -999,7 +999,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8022459312895108990, guid: 3e04bbbd8e3bda842b7d828062b469e0, type: 3}
       propertyPath: speed
-      value: 9
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8022459312895108990, guid: 3e04bbbd8e3bda842b7d828062b469e0, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8148449751494182824, guid: 3e04bbbd8e3bda842b7d828062b469e0, type: 3}
       propertyPath: m_IsTrigger

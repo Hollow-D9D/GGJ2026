@@ -238,6 +238,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheckRadius: 1
+  jumpSpeed: 9
   _groundCheck: {fileID: 8844149548205964249}
   hangTime: 1
 --- !u!114 &-8735267992042068180
