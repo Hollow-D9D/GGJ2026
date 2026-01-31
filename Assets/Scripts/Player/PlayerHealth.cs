@@ -26,7 +26,6 @@ public class PlayerHealth : Health
         if((enemyLayerMask.value & (1 << collision.gameObject.layer)) != 0)
         {
             DealDamage(20);
-            Debug.Log("eh");
         }
     }
 
