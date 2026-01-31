@@ -20,9 +20,12 @@ public class EnemyHealth : Health
         {
             DealDamage(projectile.damage);
             Destroy(projectile.gameObject);
-            Debug.Log(displayHealth.transform.localPosition);
-            displayHealth.size = new Vector2(displayHealth.size.x, (float)health / (float)maxHealth);
-            displayHealth.transform.localPosition = new Vector3(displayHealth.transform.localPosition.x, (((float)(maxHealth - health) / (float)maxHealth) / 2f), displayHealth.transform.localPosition.z);
         }
+    }
+
+    protected override void DamageDealth(int damage)
+    {
+        displayHealth.size = new Vector2(displayHealth.size.x, (float)health / (float)maxHealth);
+        displayHealth.transform.localPosition = new Vector3(displayHealth.transform.localPosition.x, (((float)(maxHealth - health) / (float)maxHealth) / 2f), displayHealth.transform.localPosition.z);
     }
 }

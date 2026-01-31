@@ -20,9 +20,15 @@ public class Health : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
 
+    protected virtual void DamageDealth(int damage)
+    {
+
+    }
+
     public void DealDamage(int damage)
     {
         health -= damage;
+        DamageDealth(damage);
         if(health <= 0)
         {
             health = 0;

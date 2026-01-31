@@ -5,48 +5,49 @@ using UnityEngine;
 
 public class MaskDoT : MonoBehaviour
 {
-    [SerializeField] private RemoveMask maskState;
+    [SerializeField] private ToggleMask maskState;
     [SerializeField] private PlayerHealth health;
 
-    [SerializeField] private float damagePerTick = 5f;
+    [SerializeField] private int damagePerTick = 5;
     [SerializeField] private float tickInterval = 1f;
 
     private Coroutine dotCoroutine;
 
     void OnEnable()
     {
-        maskState.MaskEnabled += StartDoT;
-        maskState.MaskDisabled += StopDoT;
+        maskState.MaskToggled += ToggleDot;
     }
 
     void OnDisable()
     {
-        maskState.MaskEnabled -= StartDoT;
-        maskState.MaskDisabled -= StopDoT;
+        maskState.MaskToggled -= ToggleDot;
     }
 
-    void StartDoT()
+    void ToggleDot(bool isMaskOn)
     {
-        if (dotCoroutine == null)
+        if (isMaskOn)
         {
-            dotCoroutine = StartCoroutine(DotLoop());
+            if (dotCoroutine == null)
+            {
+                dotCoroutine = StartCoroutine(DotLoop());
+            }
         }
-    }
-
-    void StopDoT()
-    {
-        if (dotCoroutine != null)
+        else
         {
-            StopCoroutine(dotCoroutine);
-            dotCoroutine = null;
+            if (dotCoroutine != null)
+            {
+                StopCoroutine(dotCoroutine);
+                dotCoroutine = null;
+            }
         }
+        
     }
 
     IEnumerator DotLoop()
     {
         while (true)
         {
-            health.TakeDamage(damagePerTick);
+            health.DealDamage(damagePerTick);
             yield return new WaitForSeconds(tickInterval);
         }
     }
