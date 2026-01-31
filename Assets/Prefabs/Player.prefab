@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f5d8b77e2a48047a145e2f3c7df0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 890772097267453784, guid: 0edbc03070bca8c41a26851284c53def, type: 3}
+  projectile: {fileID: 890772097267453784, guid: 3157379c565df0449a5b2a539d3e7435, type: 3}
   projectileSpawnPointRight: {fileID: 6787287485080176921}
   projectileSpawnPointLeft: {fileID: 8768741385221289771}
   ammoMax: 10
