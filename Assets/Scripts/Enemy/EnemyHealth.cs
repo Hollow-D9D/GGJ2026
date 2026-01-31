@@ -1,13 +1,16 @@
+using EnemyPatrolling;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : Health
 {
+    [SerializeField] SpriteRenderer displayHealth;
+
     protected override void Death()
     {
-        Debug.Log(name + ": dead");
-        GetComponent<Collider2D>().enabled = false;
+        GetComponent<DeathEnemy>().DoDeath();
+        Destroy(displayHealth.gameObject, .5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,11 +20,9 @@ public class EnemyHealth : Health
         {
             DealDamage(projectile.damage);
             Destroy(projectile.gameObject);
-            Debug.Log("ax");
-        }
-        else
-        {
-
+            Debug.Log(displayHealth.transform.localPosition);
+            displayHealth.size = new Vector2(displayHealth.size.x, (float)health / (float)maxHealth);
+            displayHealth.transform.localPosition = new Vector3(displayHealth.transform.localPosition.x, (((float)(maxHealth - health) / (float)maxHealth) / 2f), displayHealth.transform.localPosition.z);
         }
     }
 }

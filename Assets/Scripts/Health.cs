@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Health : MonoBehaviour
 {
-    [SerializeField] int health;
-    [SerializeField] int maxHealth;
+    [SerializeField] protected int health;
+    [SerializeField] protected int maxHealth;
 
     private void Awake()
     {
