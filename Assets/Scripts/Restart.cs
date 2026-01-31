@@ -15,11 +15,11 @@ public class Restart : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) {
-            RestartScene ();
+            RestartScene();
         }
     }
 
-    void RestartScene ()
+    public static void RestartScene()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);

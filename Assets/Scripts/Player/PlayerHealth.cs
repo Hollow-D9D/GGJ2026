@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,5 +33,10 @@ public class PlayerHealth : Health
     protected override void DamageDealth(int damage)
     {
         rectTransform.sizeDelta = new Vector2(imageMaxWidth * ((float)health / (float)maxHealth), rectTransform.sizeDelta.y);
+    }
+
+    protected override void Death()
+    {
+        Restart.RestartScene();
     }
 }

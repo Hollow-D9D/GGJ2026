@@ -40,7 +40,6 @@ public class MaskDoT : MonoBehaviour
                 dotCoroutine = null;
             }
         }
-        
     }
 
     IEnumerator DotLoop()
